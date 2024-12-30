@@ -1,0 +1,32 @@
+# Distribution / Build directories
+dist/
+build/
+*.egg-info/
+**/*.egg-info/
+
+# Test-related cache
+.pytest_cache/
+
+# IDE / Editor settings
+*.idea/
+.vscode/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.env/
+
+# Ignore compiled Python files
+**/__pycache__/
+**/*.py[cod]
