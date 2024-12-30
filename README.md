@@ -2,35 +2,6 @@
 
 A Python command-line tool for text summarization that can process both text files and web articles.
 
-## Project Structure
-```
-summarymaker/
-├── .pytest_cache/            # Pytest cache directory (usually not committed to VCS)
-├── CHANGELOG.md              # Changelog file detailing version history
-├── LICENSE                   # License file for your package
-├── MANIFEST.in              # Specifies source files to include in the package
-├── README.md                # Project description and documentation
-├── examples/                # Directory for example files
-│   ├── test.txt
-│   ├── test_article.md
-│   └── test_article.txt
-├── myvenv/                  # Virtual environment directory (usually not committed to VCS)
-├── pyproject.toml           # Configuration for build tools
-├── setup.py                 # Script for installing the package
-├── src/                     # Source directory
-│   └── summarizer/          # Main package directory
-│       ├── __init__.py      # Initializes the package
-│       ├── cli.py           # Command-line interface for the package
-│       ├── summarizer.py    # Core summarization logic
-│       └── utils.py         # Helper functions
-└── tests/                   # Directory for test files
-    ├── __init__.py          # Initializes the test package
-    ├── conftest.py          # Configuration for pytest
-    ├── test_cli.py         # Tests for the CLI
-    ├── test_summarizer.py  # Tests for the summarization logic
-    └── test_utils.py       # Tests for helper functions
-```
-
 ## Features
 - Summarize text from local files
 - Extract and summarize content from web URLs
@@ -49,7 +20,7 @@ pip install summarymaker
 ```bash
 git clone https://github.com/hwang2006/summarymaker
 cd summarymaker
-pip install -e .
+pip install -e .[dev]
 ```
 
 ## Dependencies
@@ -84,7 +55,7 @@ summarymaker --file examples/test_article.txt --model facebook/bart-large-cnn --
 summarymaker --file examples/test.txt
 
 # Web article summarization
-summarymaker --url https://www.bbc.com/news/article
+summarymaker --url https://en.wikivoyage.org/wiki/Seoul
 
 # Custom model and length
 summarymaker --file examples/test_article.md --model facebook/bart-large-cnn --max-length 250
@@ -96,6 +67,34 @@ The project follows a standard Python package structure:
 - Tests are in the `tests/` directory
 - Example files can be found in `examples/`
 - Configuration files include `pyproject.toml` and `setup.py`
+
+## Project Structure
+```
+summarymaker/
+├── CHANGELOG.md              # Changelog file detailing version history
+├── LICENSE                   # License file for your package
+├── MANIFEST.in              # Specifies source files to include in the package
+├── README.md                # Project description and documentation
+├── examples/                # Directory for example files
+│   ├── test.txt
+│   ├── test_article.md
+│   └── test_article.txt
+├── myvenv/                  # Virtual environment directory (usually not committed to VCS)
+├── pyproject.toml           # Configuration for build tools
+├── setup.py                 # Script for installing the package
+├── src/                     # Source directory
+│   └── summarizer/          # Main package directory
+│       ├── __init__.py      # Initializes the package
+│       ├── cli.py           # Command-line interface for the package
+│       ├── summarizer.py    # Core summarization logic
+│       └── utils.py         # Helper functions
+└── tests/                   # Directory for test files
+    ├── __init__.py          # Initializes the test package
+    ├── conftest.py          # Configuration for pytest
+    ├── test_cli.py         # Tests for the CLI
+    ├── test_summarizer.py  # Tests for the summarization logic
+    └── test_utils.py       # Tests for helper functions
+```
 
 ## Contributing
 
@@ -118,7 +117,7 @@ We welcome contributions from the community! Here's how you can help:
 ### Running Tests
 ```bash
 # Install development dependencies
-pip install -e ".[dev]"
+pip install -e .[dev]
 
 # Run tests
 pytest tests/
