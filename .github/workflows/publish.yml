@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip wheel
-          python -m pip install build twine pytest
+          python -m pip install build twine pytest pytest-cov>=4.0 pytest-mock>=3.10.0 requests-mock>=1.11.0
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
       
@@ -45,6 +45,10 @@ jobs:
       - name: Check package
         run: |
           twine check dist/*
+
+      - name: Check code formatting with black
+        run: |
+          black --check src tests
       
       - name: Publish to Test PyPI
         if: github.ref == 'refs/heads/main'
