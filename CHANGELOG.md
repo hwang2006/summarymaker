@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.0.2] - 2024-12-31
+### Added
+- Added GitHub Actions workflow for publishing to PyPI
+
 ## [0.0.1] - 2024-12-29
 ### Added
 - Initial release of the summarizer package
