@@ -10,6 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.0.3] - 2024-12-31
+### Changed
+- Updated version number in `setup.py` to 0.0.3
+- Specified `numpy<2.0` in `requirements.txt` to avoid compatibility issues
+
+### Fixed
+- Resolved NumPy version compatibility issues on Windows
+
 ## [0.0.2] - 2024-12-31
 ### Added
 - Added GitHub Actions workflow for publishing to PyPI
@@ -64,4 +72,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Secure handling of file operations
 - Rate limiting for web requests
 - Timeout handling for external API calls
-
