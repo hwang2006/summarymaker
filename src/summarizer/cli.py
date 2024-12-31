@@ -3,7 +3,7 @@ from .summarizer import process_text
 from .utils import extract_from_url, read_file
 import warnings
 
-warnings.filterwarnings("ignore")
+#warnings.filterwarnings("ignore")
 #warnings.filterwarnings("ignore", module="torch")
 #warnings.filterwarnings("ignore", module="numpy")
 
