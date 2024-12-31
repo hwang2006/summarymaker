@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
-## [0.1.0] - 2024-12-29
+## [0.0.1] - 2024-12-29
 ### Added
 - Initial release of the summarizer package
 - Core summarization functionality:
@@ -60,7 +60,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Secure handling of file operations
 - Rate limiting for web requests
 - Timeout handling for external API calls
-
-[Unreleased]: https://github.com/hwang2006/summarymaker/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/hwang2006/summarymaker/releases/tag/v0.1.0
 
