@@ -21,8 +21,6 @@ setup(
             'pytest-cov>=4.0',
             'pytest-mock>=3.10.0',
             'requests-mock>=1.11.0',
-            'black>=22.0.0',
-            'flake8>=4.0.0',
             'twine>=4.0.0',
             'build>=0.10.0',
             'wheel>=0.36.0',
