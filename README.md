@@ -45,7 +45,8 @@ summarymaker --url https://example.com
 summarymaker --file examples/test_article.txt --model facebook/bart-large-cnn --max-length 200
 ```
 
-## Web Application
+## Flask Web Application
+To run the Flask web application, use the following command:
 1. Navigate to the src/summarizer/webapp directory.
 2. Run the Flask application: 
 ```bach
@@ -53,6 +54,16 @@ python app.py
 ```
 3. Open your web browser and go to http://127.0.0.1:5000/.
 4. Choose the input type (URL, File, or Text), provide the input, and click "Summarize".
+
+## Gradio Web Application
+To run the Gradio web application, use the following command:
+1. Navigate to the src/summarizer/webapp directory.
+2. Run the Gradio application: 
+```bach
+python gradio_app.py
+```
+3. Open your web browser and go to http://127.0.0.1:7860/.
+4. This will start a Gradio web server, and you can interact with the summarization application through a web browser.
 
 ## Command-Line Options
 - `--file`: Path to a text file to summarize
@@ -82,33 +93,34 @@ The project follows a standard Python package structure:
 ## Project Structure
 ```
 summarymaker/
-├── CHANGELOG.md              # Changelog file detailing version history
-├── LICENSE                   # License file for your package
-├── MANIFEST.in              # Specifies source files to include in the package
-├── README.md                # Project description and documentation
-├── examples/                # Directory for example files
+├── CHANGELOG.md
+├── LICENSE
+├── MANIFEST.in
+├── README.md
+├── examples/
 │   ├── test.txt
 │   ├── test_article.md
 │   └── test_article.txt
-├── myvenv/                  # Virtual environment directory (usually not committed to VCS)
-├── pyproject.toml           # Configuration for build tools
-├── setup.py                 # Script for installing the package
-├── src/                     # Source directory
-│   └── summarizer/          # Main package directory
-│       ├── __init__.py      # Initializes the package
-│       ├── cli.py           # Command-line interface for the package
-│       ├── summarizer.py    # Core summarization logic
-│       ├── utils.py         # Helper functions
-│       └── webapp/          # Web application directory
-│           ├── app.py       # Flask web application
-│           └── templates/   # HTML templates for the web application
-│               └── index.html # Main HTML template
-└── tests/                   # Directory for test files
-    ├── __init__.py          # Initializes the test package
-    ├── conftest.py          # Configuration for pytest
-    ├── test_cli.py         # Tests for the CLI
-    ├── test_summarizer.py  # Tests for the summarization logic
-    └── test_utils.py       # Tests for helper functions
+├── myvenv/
+├── pyproject.toml
+├── setup.py
+├── src/
+│   └── summarizer/
+│       ├── __init__.py
+│       ├── cli.py
+│       ├── summarizer.py
+│       ├── utils.py
+│       └── webapp/
+│           ├── app.py
+│           ├── gradio_app.py
+│           └── templates/
+│               └── index.html
+└── tests/
+    ├── __init__.py
+    ├── conftest.py
+    ├── test_cli.py
+    ├── test_summarizer.py
+    └── test_utils.py
 ```
 ## Contributing
 

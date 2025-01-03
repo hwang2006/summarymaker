@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.2.1] - 2025-01-03
+### Added
+- Added Gradio web application interface (`gradio_app.py`).
+
+### Changed
+- Updated dependencies in `requirements.txt`.
+
 ## [0.2.0] - 2025-01-03
 ### Added
 - Web application interface using Flask
