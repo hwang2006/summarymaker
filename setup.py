@@ -10,7 +10,7 @@ def read_requirements(file_name):
 
 setup(
     name="summarymaker",
-    version="0.0.3",
+    version="0.1.0",  # Updated version number
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     include_package_data=True,  # This is important for including non-Python files
@@ -34,7 +34,7 @@ setup(
     },
     author="Soonwook Hwang",
     author_email="hwang@kisti.re.kr",
-    description="A command-line tool for text summarization",
+    description="A command-line and web application tool for text summarization",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/hwang2006/summarymaker",

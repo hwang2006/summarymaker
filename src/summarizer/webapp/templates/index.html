@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SummaryMaker</title>
+    <script>
+        function toggleInput() {
+            const choice = document.getElementById('choice').value;
+            const urlInput = document.getElementById('urlInput');
+            const fileInput = document.getElementById('fileInput');
+            const textInput = document.getElementById('textInput');
+            if (choice === 'url') {
+                urlInput.style.display = 'block';
+                fileInput.style.display = 'none';
+                textInput.style.display = 'none';
+                document.getElementById('file').value = "";
+                document.getElementById('text').value = "";
+            } else if (choice === 'file') {
+                urlInput.style.display = 'none';
+                fileInput.style.display = 'block';
+                textInput.style.display = 'none';
+                document.getElementById('url').value = "";
+                document.getElementById('text').value = "";
+            } else if (choice === 'text') {
+                urlInput.style.display = 'none';
+                fileInput.style.display = 'none';
+                textInput.style.display = 'block';
+                document.getElementById('url').value = "";
+                document.getElementById('file').value = "";
+            } else {
+                urlInput.style.display = 'none';
+                fileInput.style.display = 'none';
+                textInput.style.display = 'none';
+            }
+        }
+
+        function clearSummary() {
+            document.getElementById('summary').innerHTML = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>SummaryMaker</h1>
+    <form action="/summarize" method="post" enctype="multipart/form-data" onsubmit="clearSummary()">
+        <label for="choice">Choose input text type:</label><br>
+        <select id="choice" name="choice" onchange="toggleInput()">
+            <option value="">--Select--</option>
+            <option value="url">URL</option>
+            <option value="file">File</option>
+            <option value="text">Text</option>
+        </select><br><br>
+
+        <div id="urlInput" style="display: none;">
+            <label for="url">URL to Summarize:</label><br>
+            <input type="text" name="url" id="url" value="{{ url }}"><br><br>
+        </div>
+        
+        <div id="fileInput" style="display: none;">
+            <label for="file">Upload File:</label><br>
+            <input type="file" name="file" id="file"><br><br>
+        </div>
+        
+        <div id="textInput" style="display: none;">
+            <label for="text">Text to Summarize:</label><br>
+            <textarea name="text" id="text" rows="10" cols="50">{{ text }}</textarea><br><br>
+        </div>
+
+        <label for="model">Model:</label>
+        <input type="text" name="model" id="model" value="{{ model or 't5-base' }}"><br>
+        
+        <label for="max_length">Max Length:</label>
+        <input type="number" name="max_length" id="max_length" value="{{ max_length or 180 }}"><br><br>
+        
+        <input type="submit" value="Summarize">
+    </form>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <div id="summary">
+        {% if summary %}
+            <h2>Summary:</h2>
+            <p>{{ summary }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

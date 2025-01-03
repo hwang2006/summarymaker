@@ -25,11 +25,13 @@ pip install -e .[dev]
 
 ## Dependencies
 - Python >= 3.7
-- PyTorch
-- Transformers
-- Click
-- BeautifulSoup4
-- Requests
+- click>=8.0.0
+- transformers>=4.0.0
+- torch==2.4.0
+- numpy<2.0 
+- beautifulsoup4>=4.9.0
+- requests>=2.25.0
+- flask>=2.0.0 
 
 ## Usage
 ```bash
@@ -43,6 +45,15 @@ summarymaker --url https://example.com
 summarymaker --file examples/test_article.txt --model facebook/bart-large-cnn --max-length 200
 ```
 
+## Web Application
+1. Navigate to the src/summarizer/webapp directory.
+2. Run the Flask application: 
+```bach
+python app.py
+```
+3. Open your web browser and go to http://127.0.0.1:5000/.
+4. Choose the input type (URL, File, or Text), provide the input, and click "Summarize".
+
 ## Command-Line Options
 - `--file`: Path to a text file to summarize
 - `--url`: URL of web content to summarize
@@ -55,7 +66,7 @@ summarymaker --file examples/test_article.txt --model facebook/bart-large-cnn --
 summarymaker --file examples/test.txt
 
 # Web article summarization
-summarymaker --url https://en.wikivoyage.org/wiki/Seoul
+summarymaker --url https://en.wikipedia.org/wiki/Seoul
 
 # Custom model and length
 summarymaker --file examples/test_article.md --model facebook/bart-large-cnn --max-length 250
@@ -87,7 +98,11 @@ summarymaker/
 │       ├── __init__.py      # Initializes the package
 │       ├── cli.py           # Command-line interface for the package
 │       ├── summarizer.py    # Core summarization logic
-│       └── utils.py         # Helper functions
+│       ├── utils.py         # Helper functions
+│       └── webapp/          # Web application directory
+│           ├── app.py       # Flask web application
+│           └── templates/   # HTML templates for the web application
+│               └── index.html # Main HTML template
 └── tests/                   # Directory for test files
     ├── __init__.py          # Initializes the test package
     ├── conftest.py          # Configuration for pytest
@@ -95,7 +110,6 @@ summarymaker/
     ├── test_summarizer.py  # Tests for the summarization logic
     └── test_utils.py       # Tests for helper functions
 ```
-
 ## Contributing
 
 We welcome contributions from the community! Here's how you can help:

@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.1.0] - 2025-01-03
+### Added
+- Web application interface using Flask
+- Ability to summarize text from URLs, files, and direct text input via the web application
+- JavaScript-based input type selection for the web application
+- Clear previous summary results upon new submission in the web application
+
+### Changed
+- Updated version number in `setup.py` to 0.1.0
+- Added Flask as a dependency in `requirements.txt`
+- Updated `README.md` to reflect the new web application features
+
 ## [0.0.3] - 2024-12-31
 ### Changed
 - Updated version number in `setup.py` to 0.0.3
