@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.2.2] - 2025-01-04
+### Changed
+- Set the default input field choice to "Text" in the Gradio web application.
+- Ensure the Text field is shown. 
+
 ## [0.2.1] - 2025-01-03
 ### Added
 - Added Gradio web application interface (`gradio_app.py`).
