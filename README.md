@@ -54,6 +54,7 @@ python app.py
 ```
 3. Open your web browser and go to http://127.0.0.1:5000/.
 4. Choose the input type (URL, File, or Text), provide the input, and click "Summarize".
+![Flask GUI](/assets/flask_gui.png)
 
 ## Gradio Web Application
 To run the Gradio web application, use the following command:
@@ -64,6 +65,7 @@ python gradio_app.py
 ```
 3. Open your web browser and go to http://127.0.0.1:7860/.
 4. This will start a Gradio web server, and you can interact with the summarization application through a web browser.
+![Gradio GUI](/assets/gradio_gui.png)
 
 ## Command-Line Options
 - `--file`: Path to a text file to summarize
@@ -97,6 +99,9 @@ summarymaker/
 ├── LICENSE
 ├── MANIFEST.in
 ├── README.md
+├── assets/
+│   ├── flask_gui.png
+│   └── gradio_gui.png
 ├── examples/
 │   ├── test.txt
 │   ├── test_article.md

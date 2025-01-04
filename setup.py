@@ -10,7 +10,7 @@ def read_requirements(file_name):
 
 setup(
     name="summarymaker",
-    version="0.2.4",  # Updated version number
+    version="0.2.5",  # Updated version number
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     include_package_data=True,  # This is important for including non-Python files
