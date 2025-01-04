@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.2.3] - 2025-01-04
+### Fixed
+- Ensure the input fields are cleared when a new input choice in the Gradio web application.
+- Set the Gradio temporary directory to `~/.gradio_tmp` to avoid permission issues.
+
 ## [0.2.2] - 2025-01-04
 ### Changed
 - Set the default input field choice to "Text" in the Gradio web application.

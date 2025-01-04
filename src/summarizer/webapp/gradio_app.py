@@ -1,6 +1,13 @@
+import os
 import gradio as gr
 from summarizer.summarizer import process_text  # Adjust import path
 from summarizer.utils import extract_from_url  # Adjust import path
+
+# Set the Gradio temporary directory
+os.environ['GRADIO_TEMP_DIR'] = os.path.expanduser('~/.gradio_tmp')
+
+# Create the temporary directory if it does not exist
+os.makedirs(os.environ['GRADIO_TEMP_DIR'], exist_ok=True)
 
 def summarize_text(choice, url, file_path, text, model_name, max_length):
     input_text = ""
@@ -10,11 +17,14 @@ def summarize_text(choice, url, file_path, text, model_name, max_length):
         except Exception as e:
             return f"URL extraction failed: {str(e)}"
     elif choice == "File":
-        try:
-            with open(file_path.name, 'r', encoding='utf-8') as f:
-                input_text = f.read()
-        except Exception as e:
-            return f"File reading failed: {str(e)}"
+        if file_path is not None:
+            try:
+                with open(file_path.name, 'r', encoding='utf-8') as f:
+                    input_text = f.read()
+            except Exception as e:
+                return f"File reading failed: {str(e)}"
+        else:
+            return "File reading failed: No file uploaded"
     elif choice == "Text":
         input_text = text
 
@@ -28,14 +38,11 @@ def summarize_text(choice, url, file_path, text, model_name, max_length):
         return f"Summarization failed: {str(e)}"
 
 def update_visibility(choice):
-    if choice == "URL":
-        return gr.update(visible=True), gr.update(visible=False), gr.update(visible=False)
-    elif choice == "File":
-        return gr.update(visible=False), gr.update(visible=True), gr.update(visible=False)
-    elif choice == "Text":
-        return gr.update(visible=False), gr.update(visible=False), gr.update(visible=True)
-    else:
-        return gr.update(visible=False), gr.update(visible=False), gr.update(visible=False)
+    return (
+        gr.update(visible=(choice == "URL"), value=""),
+        gr.update(visible=(choice == "File"), value=None),
+        gr.update(visible=(choice == "Text"), value="")
+    )
 
 def main():
     choices = ["Text", "URL", "File"]
@@ -53,11 +60,10 @@ def main():
         gr.Button("Summarize").click(
             summarize_text,
             inputs=[choice, url, file, text, model, max_length],
-            outputs=summary
+            outputs=[summary]
         )
 
-    #demo.launch(share=True)  # Enable public link
-    demo.launch()  
+    demo.launch()  # Enable public link
 
 if __name__ == "__main__":
     main()
