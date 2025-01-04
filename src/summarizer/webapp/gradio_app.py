@@ -47,6 +47,7 @@ def update_visibility(choice):
 def main():
     choices = ["Text", "URL", "File"]
     with gr.Blocks() as demo:
+        gr.Markdown("# SummaryMaker")  # Add title here
         choice = gr.Dropdown(choices, label="Choose input text type", value="Text")
         url = gr.Textbox(label="URL to Summarize", visible=False)
         file = gr.File(label="Upload File", visible=False)

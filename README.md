@@ -65,7 +65,7 @@ python gradio_app.py
 ```
 3. Open your web browser and go to http://127.0.0.1:7860/.
 4. This will start a Gradio web server, and you can interact with the summarization application through a web browser.
-![Gradio GUI](/assets/gradio_gui.png)
+![Gradio GUI](/assets/gradio_gui_2.png)
 
 ## Command-Line Options
 - `--file`: Path to a text file to summarize

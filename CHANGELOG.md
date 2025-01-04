@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.2.6] - 2025-01-04
+### Added
+- Added a title "SummaryMaker" to the Gradio interface.
+
 ## [0.2.5] - 2025-01-04
 ### Added
 - Added images of Flask and Gradio GUIs to the `README.md` file.
