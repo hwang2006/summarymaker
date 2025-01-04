@@ -10,6 +10,10 @@
             const urlInput = document.getElementById('urlInput');
             const fileInput = document.getElementById('fileInput');
             const textInput = document.getElementById('textInput');
+
+            // Clear the summary box when a new input type is selected
+            document.getElementById('summary').value = '';
+
             if (choice === 'url') {
                 urlInput.style.display = 'block';
                 fileInput.style.display = 'none';
@@ -35,8 +39,9 @@
             }
         }
 
+
         function clearSummary() {
-            document.getElementById('summary').innerHTML = '';
+            document.getElementById('summary').value = '';
         }
     </script>
 </head>
@@ -77,11 +82,9 @@
     {% if error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}
-    <div id="summary">
-        {% if summary %}
-            <h2>Summary:</h2>
-            <p>{{ summary }}</p>
-        {% endif %}
+    <div>
+        <h2>Summary:</h2>
+        <textarea id="summary" rows="10" cols="50" readonly>{{ summary }}</textarea>
     </div>
 </body>
 </html>

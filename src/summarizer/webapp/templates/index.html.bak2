@@ -78,10 +78,8 @@
         <p style="color: red;">{{ error }}</p>
     {% endif %}
     <div>
-        {% if summary %}
-            <h2>Summary:</h2>
-            <textarea id="summary" rows="10" cols="50" readonly>{{ summary }}</textarea>
-        {% endif %}
+        <h2>Summary:</h2>
+        <textarea id="summary" rows="10" cols="50" readonly>{{ summary }}</textarea>
     </div>
 </body>
 </html>

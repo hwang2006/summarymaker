@@ -14,6 +14,7 @@ def summarize():
         choice = request.form.get('choice')
         url = request.form.get('url')
         file = request.files.get('file')
+        text = request.form.get('text')
         model = request.form.get('model') or 't5-base'
         max_length = request.form.get('max_length')
 
@@ -28,30 +29,32 @@ def summarize():
                 return render_template('index.html', error="Invalid maximum length")
 
         # Ensure only one input is provided based on the choice
-        if (choice == 'url' and not url) or (choice == 'file' and not file):
+        if (choice == 'url' and not url) or (choice == 'file' and not file) or (choice == 'text' and not text):
             return render_template('index.html', error="Please provide the selected input type.")
 
-        text = ""
+        input_text = ""
         if choice == 'url':
             try:
-                text = extract_from_url(url)
+                input_text = extract_from_url(url)
             except Exception as e:
                 return render_template('index.html', error=f"URL extraction failed: {str(e)}")
         elif choice == 'file':
             try:
-                text = file.read().decode('utf-8')
+                input_text = file.read().decode('utf-8')
             except Exception as e:
                 return render_template('index.html', error=f"File reading failed: {str(e)}")
+        elif choice == 'text':
+            input_text = text
         
-        if not text or len(text.strip()) < 50:
+        if not input_text or len(input_text.strip()) < 50:
             return render_template('index.html', error="Not enough text content to summarize")
 
         try:
-            summary = process_text(text, model=model, max_length=max_length)
+            summary = process_text(input_text, model=model, max_length=max_length)
         except Exception as e:
             return render_template('index.html', error=f"Summarization failed: {str(e)}")
 
-        return render_template('index.html', summary=summary, url=url, model=model, max_length=max_length)
+        return render_template('index.html', summary=summary, url=url, model=model, max_length=max_length, text=text)
     
     return render_template('index.html')
 
