@@ -81,8 +81,12 @@ summarymaker --file examples/test.txt
 # Web article summarization
 summarymaker --url https://en.wikipedia.org/wiki/Seoul
 
-# Custom model and length
+# Custom model and length. 
+# Unlike the t5-base model, the facebook/bart-large-cnn model can handle inputs only up to 512 tokens.
 summarymaker --file examples/test_article.md --model facebook/bart-large-cnn --max-length 250
+
+# allenai/led-base-16384 is a Longformer Encoder-Decoder (LED) model designed to handle long sequences.
+summarymaker --file examples/test_article.md --model allenai/led-base-16384 --max-length 1024
 ```
 
 ## Development
