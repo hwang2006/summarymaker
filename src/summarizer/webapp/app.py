@@ -76,4 +76,5 @@ def summarize():
 
 if __name__ == '__main__':
     # Use a secure production-ready WSGI server for deployment, e.g., Gunicorn
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)

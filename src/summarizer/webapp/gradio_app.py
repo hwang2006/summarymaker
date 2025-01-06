@@ -1,7 +1,9 @@
 import os
 import gradio as gr
 from summarizer.summarizer import process_text  # Adjust import path
+#from summarizer import process_text  # Adjust import path
 from summarizer.utils import extract_from_url  # Adjust import path
+#from utils import extract_from_url  # Adjust import path
 
 # Set the Gradio temporary directory
 os.environ['GRADIO_TEMP_DIR'] = os.path.expanduser('~/.gradio_tmp')
@@ -64,7 +66,9 @@ def main():
             outputs=[summary]
         )
 
-    demo.launch()  # Enable public link
+    #demo.launch()  
+    # Ensure the Gradio app binds to '0.0.0.0' to be accessible from outside the container
+    demo.launch(server_name="0.0.0.0", server_port=7860)
 
 if __name__ == "__main__":
     main()
