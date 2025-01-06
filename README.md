@@ -57,6 +57,7 @@ python app.py
 ![Flask GUI](/assets/flask_gui.png)
 
 ## Gradio Web Application
+### Local Deployment
 To run the Gradio web application, use the following command:
 1. Navigate to the src/summarizer/webapp directory.
 2. Run the Gradio application: 
@@ -66,6 +67,16 @@ python gradio_app.py
 3. Open your web browser and go to http://127.0.0.1:7860/.
 4. This will start a Gradio web server, and you can interact with the summarization application through a web browser.
 ![Gradio GUI](/assets/gradio_gui_2.png)
+
+### Online Deployment on Koyeb
+The Gradio web application is deployed on Koyeb, a serverless platform that simplifies hosting and managing applications, allowing quick and scalable deployments. You can try out the SummaryMaker Web application using the following steps:
+
+1. Open your web browser and go to [SummaryMaker on Koyeb](https://registered-elyse-kisti-c40a0c91.koyeb.app/)
+2. Choose the input type (URL, File, or Text).
+3. Provide the input (URL, upload a file, or enter text directly).
+4. Select a text summarization model (e.g., google/flan-t5-small ) on Hugging Face.
+5. Optionally adjust the maximum summary length.
+6. Click "Summarize" to generate the summary.
 
 ## Command-Line Options
 - `--file`: Path to a text file to summarize
