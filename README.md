@@ -71,7 +71,7 @@ python gradio_app.py
 ### Online Deployment on Koyeb
 The Gradio web application is deployed on Koyeb, a serverless platform that simplifies hosting and managing applications, allowing quick and scalable deployments. You can try out the SummaryMaker Web application using the following steps:
 
-1. Open your web browser and go to [SummaryMaker on Koyeb](https://registered-elyse-kisti-c40a0c91.koyeb.app/)
+1. Open your web browser and go to [SummaryMaker on Koyeb](https://distinctive-alida-kisti-defa9b51.koyeb.app/)
 2. Choose the input type (URL, File, or Text).
 3. Provide the input (URL, upload a file, or enter text directly).
 4. Select a text summarization model (e.g., google/flan-t5-small ) on Hugging Face.
