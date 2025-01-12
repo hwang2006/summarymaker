@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional example files for demonstration
 - Comprehensive documentation in README.md
 
+## [0.2.8] - 2025-01-12
+### Added
+- Set environment variables `HF_HOME` and `GRADIO_TEMP_DIR`.
+- Created directories with appropriate permissions.
+
+### Changed
+- Updated input components and settings for summarization.
+- Improved error handling and messages.
+
 ## [0.2.7] - 2025-01-06
 
 ### Added
